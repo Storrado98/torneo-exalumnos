@@ -902,96 +902,15 @@ const tournament = {
   points:{win:3,draw:1,loss:0}
 };
 
-let teams=[
-  {id:1,name:"Esclavas VI",short:"ESC VI",logo:"E6",color:"#0f7a4d"},
-  {id:2,name:"Pepitos Boys",short:"PEP",logo:"PB",color:"#1f5fbf"},
-  {id:3,name:"La Promoción",short:"PROM",logo:"LP",color:"#8b2bbf"},
-  {id:4,name:"Los Históricos",short:"HIST",logo:"LH",color:"#c0392b"},
-  {id:5,name:"Deportivo Alumni",short:"ALU",logo:"DA",color:"#d48a00"},
-  {id:6,name:"La Banda",short:"BND",logo:"LB",color:"#212121"},
-  {id:7,name:"Generación Dorada",short:"GD",logo:"GD",color:"#b39311"},
-  {id:8,name:"Los Pibes",short:"PIB",logo:"P",color:"#0097a7"}
-];
+let teams=[];
 
-let players=[
-  {id:101,teamId:1,name:"Seba Torrado",number:10,pos:"Delantero"},
-  {id:102,teamId:1,name:"Nico Álvarez",number:8,pos:"Medio"},
-  {id:103,teamId:1,name:"Tomi Ruiz",number:5,pos:"Defensor"},
-  {id:104,teamId:1,name:"Agus Molina",number:1,pos:"Arquero"},
-  {id:105,teamId:1,name:"Fede León",number:4,pos:"Defensor"},
-  {id:106,teamId:1,name:"Juani Rivas",number:7,pos:"Medio"},
-  {id:107,teamId:1,name:"Nacho Vera",number:11,pos:"Suplente"},
-  {id:201,teamId:2,name:"Juan Pérez",number:9,pos:"Delantero"},
-  {id:202,teamId:2,name:"Fede Gómez",number:10,pos:"Medio"},
-  {id:203,teamId:2,name:"Lucas Martín",number:6,pos:"Defensor"},
-  {id:204,teamId:2,name:"Rama Silva",number:1,pos:"Arquero"},
-  {id:205,teamId:2,name:"Mati Costa",number:3,pos:"Defensor"},
-  {id:206,teamId:2,name:"Toto Blanco",number:8,pos:"Medio"},
-  {id:207,teamId:2,name:"Gonza Díaz",number:14,pos:"Suplente"},
-  {id:301,teamId:3,name:"Mateo Díaz",number:11,pos:"Delantero"},
-  {id:302,teamId:3,name:"Nacho Costa",number:7,pos:"Medio"},
-  {id:303,teamId:3,name:"Benja Suárez",number:4,pos:"Defensor"},
-  {id:304,teamId:3,name:"Fran Soto",number:1,pos:"Arquero"},
-  {id:401,teamId:4,name:"Fran López",number:9,pos:"Delantero"},
-  {id:402,teamId:4,name:"Agus Vidal",number:5,pos:"Defensor"},
-  {id:403,teamId:4,name:"Juli Castro",number:8,pos:"Medio"},
-  {id:404,teamId:4,name:"Pato Núñez",number:1,pos:"Arquero"},
-  {id:501,teamId:5,name:"Benja Suárez",number:10,pos:"Delantero"},
-  {id:601,teamId:6,name:"Gonza Torres",number:10,pos:"Medio"},
-  {id:701,teamId:7,name:"Julián Castro",number:10,pos:"Delantero"},
-  {id:801,teamId:8,name:"Rama Silva",number:10,pos:"Medio"}
-];
+let players=[];
 
-let matches=[
-  {id:1,round:1,date:"2026-07-06",time:"19:00",field:"Cancha 1",homeId:1,awayId:2,homeGoals:3,awayGoals:2,status:"Finalizado"},
-  {id:2,round:1,date:"2026-07-06",time:"20:00",field:"Cancha 2",homeId:3,awayId:4,homeGoals:1,awayGoals:1,status:"Finalizado"},
-  {id:3,round:1,date:"2026-07-07",time:"19:30",field:"Cancha 1",homeId:5,awayId:6,homeGoals:null,awayGoals:null,status:"Programado"},
-  {id:4,round:1,date:"2026-07-07",time:"20:30",field:"Cancha 1",homeId:7,awayId:8,homeGoals:null,awayGoals:null,status:"Programado"},
-  {id:5,round:2,date:"2026-07-13",time:"19:00",field:"Cancha 1",homeId:1,awayId:3,homeGoals:null,awayGoals:null,status:"Programado"},
-  {id:6,round:2,date:"2026-07-13",time:"20:00",field:"Cancha 2",homeId:2,awayId:4,homeGoals:null,awayGoals:null,status:"Programado"},
-  {id:7,round:2,date:"2026-07-14",time:"19:30",field:"Cancha 1",homeId:5,awayId:7,homeGoals:null,awayGoals:null,status:"Programado"},
-  {id:8,round:2,date:"2026-07-14",time:"20:30",field:"Cancha 1",homeId:6,awayId:8,homeGoals:null,awayGoals:null,status:"Programado"},
-  {id:9,round:3,date:"2026-07-20",time:"19:00",field:"Cancha 1",homeId:1,awayId:4,homeGoals:null,awayGoals:null,status:"Programado"},
-  {id:10,round:3,date:"2026-07-20",time:"20:00",field:"Cancha 2",homeId:2,awayId:3,homeGoals:null,awayGoals:null,status:"Programado"},
-  {id:11,round:3,date:"2026-07-21",time:"19:30",field:"Cancha 1",homeId:5,awayId:8,homeGoals:null,awayGoals:null,status:"Programado"},
-  {id:12,round:3,date:"2026-07-21",time:"20:30",field:"Cancha 1",homeId:6,awayId:7,homeGoals:null,awayGoals:null,status:"Programado"}
-];
+let matches=[];
 
-let events=[
-  {id:1,matchId:1,teamId:1,playerId:101,type:"gol",minute:6},
-  {id:2,matchId:1,teamId:1,playerId:102,type:"gol",minute:12},
-  {id:3,matchId:1,teamId:1,playerId:101,type:"gol",minute:25},
-  {id:4,matchId:1,teamId:2,playerId:201,type:"gol",minute:18},
-  {id:5,matchId:1,teamId:2,playerId:202,type:"gol",minute:31},
-  {id:6,matchId:1,teamId:2,playerId:203,type:"amarilla",minute:22},
-  {id:7,matchId:2,teamId:3,playerId:301,type:"gol",minute:9},
-  {id:8,matchId:2,teamId:4,playerId:401,type:"gol",minute:16},
-  {id:9,matchId:2,teamId:3,playerId:302,type:"amarilla",minute:29},
-  {id:10,matchId:2,teamId:4,playerId:402,type:"roja",minute:33}
-];
+let events=[];
 
-let formations=[
-  // slot reemplaza x/y para que sea editable a mano en Google Sheets.
-  // Opciones titulares: arquero, defensor_1, defensor_2, defensor_3,
-  // mediocampista_1, mediocampista_2, mediocampista_3,
-  // delantero_1, delantero_2, delantero_3.
-  // Para suplentes usar slot:"suplente".
-  {matchId:1,teamId:1,playerId:104,slot:"arquero"},
-  {matchId:1,teamId:1,playerId:103,slot:"defensor_1"},
-  {matchId:1,teamId:1,playerId:105,slot:"defensor_3"},
-  {matchId:1,teamId:1,playerId:102,slot:"mediocampista_1"},
-  {matchId:1,teamId:1,playerId:106,slot:"mediocampista_3"},
-  {matchId:1,teamId:1,playerId:101,slot:"delantero_2"},
-  {matchId:1,teamId:1,playerId:107,slot:"suplente"},
-
-  {matchId:1,teamId:2,playerId:204,slot:"arquero"},
-  {matchId:1,teamId:2,playerId:203,slot:"defensor_1"},
-  {matchId:1,teamId:2,playerId:205,slot:"defensor_3"},
-  {matchId:1,teamId:2,playerId:202,slot:"mediocampista_1"},
-  {matchId:1,teamId:2,playerId:206,slot:"mediocampista_3"},
-  {matchId:1,teamId:2,playerId:201,slot:"delantero_2"},
-  {matchId:1,teamId:2,playerId:207,slot:"suplente"}
-];
+let formations=[];
 
 let viewHistory=[];
 const $=s=>document.querySelector(s);
@@ -1004,7 +923,8 @@ document.addEventListener("DOMContentLoaded",async ()=>{
   try{
     await loadTournamentData();
   }catch(error){
-    console.warn("No se pudo cargar Google Sheets. Se usan datos de ejemplo.", error);
+    showDataError(error);
+    return;
   }
 
   applyConfigToPage();
@@ -1014,35 +934,90 @@ document.addEventListener("DOMContentLoaded",async ()=>{
   renderStandings();
   renderStats();
 
-  setTimeout(()=>{$("#loader").classList.add("hidden");$("#app").classList.remove("hidden")},700);
+  setTimeout(()=>{$("#loader").classList.add("hidden");$("#app").classList.remove("hidden")},500);
 });
+
+function showDataError(error){
+  const message = error && error.message ? error.message : String(error || "Error desconocido");
+  $("#loader").classList.add("hidden");
+  $("#app").classList.remove("hidden");
+
+  const content = document.querySelector(".content");
+  if(content){
+    content.innerHTML = `
+      <section class="view active">
+        <div class="page-head">
+          <div>
+            <span class="eyebrow">Conexión</span>
+            <h2>No se pudo cargar el Google Sheet</h2>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Qué revisar</h3>
+          <div class="list">
+            <div class="event-line"><strong>1. Apps Script</strong><span class="sub">Deploy como Web app</span></div>
+            <div class="event-line"><strong>2. Acceso</strong><span class="sub">Who has access: Anyone</span></div>
+            <div class="event-line"><strong>3. URL</strong><span class="sub">Debe terminar en /exec</span></div>
+            <div class="event-line"><strong>Error</strong><span class="sub">${escapeHtml(message)}</span></div>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+}
+
+function escapeHtml(text){
+  return String(text)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
 
 function loadTournamentData(){
   if(!API_URL || API_URL.includes("PEGAR_URL")){
-    return Promise.resolve();
+    return Promise.reject(new Error("Falta pegar la URL del Apps Script en API_URL."));
   }
 
   return new Promise((resolve,reject)=>{
     const callbackName = "tournamentDataCallback_" + Date.now();
     const script = document.createElement("script");
     const separator = API_URL.includes("?") ? "&" : "?";
+    let completed = false;
+
+    const cleanup = ()=>{
+      delete window[callbackName];
+      script.remove();
+    };
+
+    const timeout = setTimeout(()=>{
+      if(completed) return;
+      completed = true;
+      cleanup();
+      reject(new Error("Timeout: el Apps Script no ejecutó el callback. Revisar permisos del deployment."));
+    }, 12000);
 
     window[callbackName] = (payload)=>{
+      if(completed) return;
+      completed = true;
+      clearTimeout(timeout);
       try{
         applyTournamentData(payload);
         resolve();
       }catch(error){
         reject(error);
       }finally{
-        delete window[callbackName];
-        script.remove();
+        cleanup();
       }
     };
 
     script.onerror = ()=>{
-      delete window[callbackName];
-      script.remove();
-      reject(new Error("No respondió el Apps Script."));
+      if(completed) return;
+      completed = true;
+      clearTimeout(timeout);
+      cleanup();
+      reject(new Error("No respondió el Apps Script. Puede ser 403/permisos o URL incorrecta."));
     };
 
     script.src = `${API_URL}${separator}callback=${callbackName}&v=${Date.now()}`;
@@ -1143,19 +1118,35 @@ function setupBackButtons(){
   $("#backFromTeam").onclick=()=>goBack("standings");
 }
 function setupRoundSelector(){
-  const rounds=[...new Set(matches.map(m=>m.round))].sort((a,b)=>a-b);
-  $("#roundSelector").innerHTML=rounds.map(r=>`<option value="${r}">Fecha ${r}</option>`).join("");
-  $("#roundSelector").value=matches.find(m=>m.status!=="Finalizado")?.round || rounds[0];
-  $("#roundSelector").onchange=renderHome;
+  const rounds=[...new Set(matches.map(m=>m.round))].filter(Boolean).sort((a,b)=>a-b);
+  const selector = $("#roundSelector");
+
+  if(!rounds.length){
+    selector.innerHTML = `<option value="">Sin fechas</option>`;
+    selector.onchange = renderHome;
+    return;
+  }
+
+  selector.innerHTML=rounds.map(r=>`<option value="${r}">Fecha ${r}</option>`).join("");
+  selector.value=matches.find(m=>m.status!=="Finalizado")?.round || rounds[0];
+  selector.onchange=renderHome;
 }
 function renderHome(){
   const round=Number($("#roundSelector").value);
+  if(!round){
+    $("#homeMatches").innerHTML=`<div class="empty">Todavía no hay fechas cargadas en la hoja Partidos.</div>`;
+    return;
+  }
   const list=matches.filter(m=>m.round===round).sort(sortDT);
   $("#homeMatches").innerHTML=renderRoundBlock(round,list,true);
   attachMatchClicks();
 }
 function renderFixture(){
-  const rounds=[...new Set(matches.map(m=>m.round))].sort((a,b)=>a-b);
+  const rounds=[...new Set(matches.map(m=>m.round))].filter(Boolean).sort((a,b)=>a-b);
+  if(!rounds.length){
+    $("#fixtureFull").innerHTML=`<div class="empty">Todavía no hay partidos cargados.</div>`;
+    return;
+  }
   $("#fixtureFull").innerHTML=rounds.map(round=>{
     const list=matches.filter(m=>m.round===round).sort(sortDT);
     return renderRoundBlock(round,list,false);
